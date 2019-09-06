@@ -1,4 +1,4 @@
-import random
+from random import choice
 
 def load_word():
     '''
@@ -10,9 +10,7 @@ def load_word():
     f = open('words.txt', 'r')
     words_list = f.readlines()
     f.close()
-
-    words_list = words_list[0].split(' ')
-    secret_word = random.choice(words_list)
+    secret_word = choice(words_list)
     return secret_word
 
 def is_word_guessed(secret_word, letters_guessed):
@@ -24,8 +22,24 @@ def is_word_guessed(secret_word, letters_guessed):
     Returns:
         bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     '''
+
+
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
-    pass
+    i = 0
+    while i <= len(letters_guessed) - 1:
+        if letters_guessed[i] == secret_word[i]:
+            i += 1
+        else:
+            return False
+
+    return True
+
+
+    # for letter in secret_word:
+    #     for letter2 in letters_guessed:
+    #
+    #     else:
+    #         return False
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
@@ -77,10 +91,11 @@ def spaceman(secret_word):
     #TODO: check if the game has been won or lost
 
 
+if __name__ == "__main__":
+    print(is_word_guessed('hello', 'q'))
 
 
 
-
-#These function calls that will start the game
-secret_word = load_word()
-spaceman(load_word())
+    #These function calls that will start the game
+    # secret_word = load_word()
+    # spaceman(secret_word)
