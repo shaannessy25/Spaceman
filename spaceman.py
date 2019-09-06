@@ -12,6 +12,7 @@ def load_word():
     f.close()
     secret_word = choice(words_list)
     return secret_word
+    pass
 
 def is_word_guessed(secret_word, letters_guessed):
     '''
@@ -25,21 +26,20 @@ def is_word_guessed(secret_word, letters_guessed):
 
 
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
-    i = 0
-    while i <= len(letters_guessed) - 1:
-        if letters_guessed[i] == secret_word[i]:
-            i += 1
-        else:
-            return False
-
-    return True
-
-
-    # for letter in secret_word:
-    #     for letter2 in letters_guessed:
-    #
+    # i = 0
+    # while i <= len(letters_guessed) - 1:
+    #     if letters_guessed[i] == secret_word[i]:
+    #         i += 1
     #     else:
     #         return False
+    #
+    # return True
+    for letter in secret_word:
+        if letter not in letters_guessed:
+            return False
+    return True
+     pass
+
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
@@ -52,7 +52,7 @@ def get_guessed_word(secret_word, letters_guessed):
     '''
 
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
-
+    # This loop will go through the secret word and count all the letters in the string and replace it with  a '_' symbol
     pass
 
 
@@ -79,7 +79,7 @@ def spaceman(secret_word):
       secret_word (string): the secret word to guess.
     '''
 
-
+    pass
     #TODO: show the player information about the game according to the project spec
 
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
@@ -90,12 +90,12 @@ def spaceman(secret_word):
 
     #TODO: check if the game has been won or lost
 
-
-if __name__ == "__main__":
-    print(is_word_guessed('hello', 'q'))
+#
+# if __name__ == "__main__":
+#     print(is_word_guessed('hello', 'hellw'))
 
 
 
     #These function calls that will start the game
-    # secret_word = load_word()
-    # spaceman(secret_word)
+secret_word = load_word()
+spaceman(secret_word)
