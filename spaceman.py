@@ -27,14 +27,6 @@ def is_word_guessed(secret_word, letters_guessed):
     '''
 
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
-    # i = 0
-    # while i <= len(letters_guessed) - 1:
-    #     if letters_guessed[i] == secret_word[i]:
-    #         i += 1
-    #     else:
-    #         return False
-    #
-    # return True
     for letter in secret_word:
         if letter not in letters_guessed:
             return False
@@ -60,7 +52,6 @@ def get_guessed_word(secret_word, letters_guessed):
     return guessed_word
     # TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
     # This loop will go through the secret word and count all the letters in the string and replace it with  a '_' symbol
-    pass
 
 
 def is_guess_in_word(guess, secret_word):
@@ -73,9 +64,11 @@ def is_guess_in_word(guess, secret_word):
         bool: True if the guess is in the secret_word, False otherwise
     '''
     # TODO: check if the letter guess is in the secret word
+    if guess in secret_word:
+        return True
+    return False
 
 
-    pass
 
 
 def spaceman(secret_word):
