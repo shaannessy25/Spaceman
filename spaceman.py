@@ -50,6 +50,14 @@ def get_guessed_word(secret_word, letters_guessed):
         else:
             guessed_word += "_"
     return guessed_word
+
+def get_wrong_letters(secret_word, letters_guessed):
+    wrong = []
+    for letter in letters_guessed:
+        if letter not in secret_word:
+            wrong += letters
+    return wrong
+
     # TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
     # This loop will go through the secret word and count all the letters in the string and replace it with  a '_' symbol
 
@@ -98,10 +106,6 @@ def spaceman(secret_word):
             print('Please enter a single letter.')
         elif guess in letters_guessed:
             print('You have already guessed that letter. Choose again.')
-        # elif guess not in secret_word:
-        #     print('Please enter a LETTER.')
-        # else:
-        #     return guess
 
     # TODO: Check if the guessed letter is in the secret or not and give the player feedback
     if is_guess_in_word(letter, secret_word)
@@ -109,9 +113,9 @@ def spaceman(secret_word):
     else:
         print('Sorry try again')
         num_guesses += 1
-
+    print("letters guessed: ", get_wrong_letters(secret_word, letters_guessed))
     # TODO: show the guessed word so far
-
+    print(get_guessed_word(secret_word, letters_guessed))
     # TODO: check if the game has been won or lost
 
     # These function calls that will start the game
