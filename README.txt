@@ -1,3 +1,16 @@
+Simplified Instructions:
+  1. Display the amount of guess words and ask user to enter a letter
+  2. Get user input and check to see if it is a letter
+  3. If it is a letter check to see if the letter is in the secret words
+  4. If letter is in secret word display letter
+  5. If the letter is not in the secret word display answer is wrong and number
+    attempts decrement by 1.
+  6. If user guesses all of the correct letters then display "You Win"
+  7. If user runs out of attempts display you've lost
+  8. Ask the user if they want to play again
+
+
+
 secret_word = load_word()
 
 The secret word call the load word function. The load word function opens a text
@@ -23,7 +36,7 @@ spaceman function will do this:
   if the user guessed letter is not in used letter then add letter to list
 
   if the user guessed letter is correct then add letter to correct letters list
-  
+
 
 letter_guess:
   while the guess is a valid input display the length of the secret word
