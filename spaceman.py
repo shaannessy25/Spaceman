@@ -11,11 +11,9 @@ def load_word():
     f = open('words.txt', 'r')
     words_list = f.readlines()
     f.close()
-    words_list = words_list[0].split(' ')
-    secret_word = random.choice(words_list)
+    words_list = words_list[0].split(' ') #splits the word by its letter. hello = h,e,l,l,o
+    secret_word = random.choice(words_list) #picks a random word from the list
     return secret_word
-
-
 
 
 def is_word_guessed(secret_word, letters_guessed):
@@ -28,12 +26,11 @@ def is_word_guessed(secret_word, letters_guessed):
         bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     '''
 
-    # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
+    # Loops through the letters in the secret_word and check if a letter is not in lettersGuessed
     for letter in secret_word:
         if letter not in letters_guessed:
             return False
     return True
-
 
 
 def get_guessed_word(secret_word, letters_guessed):
@@ -46,18 +43,17 @@ def get_guessed_word(secret_word, letters_guessed):
         string: letters and underscores.  For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position.  For letters in the word that the user has not yet guessed, shown an _ (underscore) instead.
     '''
     blanks = ''
-    for letter in secret_word:  #converts secret_word string into _
+    for letter in secret_word:
         if letter in letters_guessed:
-            blanks += letter
+            blanks += letter # if guess is correct update blank with that letter
         else:
-            blanks += "_"
+            blanks += "_ " # if answer is wrong blank remains _
     return blanks
-
 
 
 def check_used_letters(used_letters):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+                'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
     wrong = ''
     for letter in alphabet:
@@ -66,11 +62,13 @@ def check_used_letters(used_letters):
         else:
             wrong += letter
     return print(wrong)
-    #print(f"These letters have been guessed {wrong}")
+    # print(f"These letters have been guessed {wrong}")
+
 
 def is_guess_in_word(guess, secret_word):
     # checks to see if the letter guessed is in the secret word
     return guess in secret_word
+
 
 def letter_guess():
     guess = ''
@@ -104,6 +102,7 @@ def spaceman(secret_word):
             if guessesRemaining == 0:
                 print(f'You have 0 guesses remaining you lose. the word was {secret_word}')
                 return
+
             print('Sorry, your guess was not in the word, try again!')
             print(f'You have {guessesRemaining} incorrect guesses left')
             blanks = get_guessed_word(secret_word, correct_letters)
@@ -111,13 +110,13 @@ def spaceman(secret_word):
         check_used_letters(used_letters)
 
 
-
 secret_word = load_word()
 spaceman(secret_word)
 print("Would you like to play again?")
 answer = input("Enter Y/N: ")
-if answer == "Y" or answer == "y":
+while answer == "Y" or answer == "y":
     secret_word = load_word()
     spaceman(secret_word)
-else:
-    print("Thank you for playing")
+    answer = input("Enter Y/N: ")
+# else:
+#     print("Thank you for playing")
