@@ -57,12 +57,16 @@ def get_guessed_word(secret_word, letters_guessed):
 
 def check_used_letters(used_letters):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-                'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
     wrong = ''
     for letter in alphabet:
-        if letter not in secret_word:
+        if letter in used_letters:
+            wrong += '_'
+        else:
             wrong += letter
-    print(f"These letters have been guessed {wrong}")
+    return print(wrong)
+    #print(f"These letters have been guessed {wrong}")
 
 def is_guess_in_word(guess, secret_word):
     # checks to see if the letter guessed is in the secret word
@@ -106,5 +110,14 @@ def spaceman(secret_word):
             print(f'Guessed word so far {blanks}')
         check_used_letters(used_letters)
 
+
+
 secret_word = load_word()
 spaceman(secret_word)
+print("Would you like to play again?")
+answer = input("Enter Y/N: ")
+if answer == "Y" or answer == "y":
+    secret_word = load_word()
+    spaceman(secret_word)
+else:
+    print("Thank you for playing")
