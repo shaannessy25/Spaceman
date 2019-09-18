@@ -66,7 +66,7 @@ def check_used_letters(used_letters):
 
 
 def is_guess_in_word(guess, secret_word):
-    # checks to see if the letter guessed is in the secret word
+    # returns the correct user guessed and displays it in secret_word
     return guess in secret_word
 
 
@@ -80,6 +80,7 @@ def letter_guess():
 
 
 def spaceman(secret_word):
+    print("Welcome to Spaceman! Let's play")
     used_letters = []
     correct_letters = []
     guessesRemaining = 7
@@ -109,14 +110,15 @@ def spaceman(secret_word):
             print(f'Guessed word so far {blanks}')
         check_used_letters(used_letters)
 
-
-secret_word = load_word()
-spaceman(secret_word)
-print("Would you like to play again?")
-answer = input("Enter Y/N: ")
-while answer == "Y" or answer == "y":
+if __name__ == '__main__':
     secret_word = load_word()
     spaceman(secret_word)
+
+
+
+    print("Would you like to play again?")
     answer = input("Enter Y/N: ")
-# else:
-#     print("Thank you for playing")
+    while answer == "Y" or answer == "y":
+        secret_word = load_word()
+        spaceman(secret_word)
+        answer = input("Enter Y/N: ")

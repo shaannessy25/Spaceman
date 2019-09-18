@@ -40,3 +40,19 @@ spaceman function will do this:
 
 letter_guess:
   while the guess is a valid input display the length of the secret word
+
+
+get_guessed_word:
+
+convert the secret word string into '_' If the letter guessed is in the secret
+word then display the letter in secret word.
+
+
+is_word_guessed:
+
+  for each letter in the secret word check to see if the letter is in the secret
+  word. If yes then return true otherwise return False
+
+
+
+is_guess_in_word
